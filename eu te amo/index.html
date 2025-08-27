@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para a Maria — do Henrique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0e0f14;
+      --card: #11131b;
+      --ink: #e8ecf1;
+      --muted: #b5c0cf;
+      --rose: #ff7aa2;
+      --rose-2: #ff98b8;
+      --lilac: #a994ff;
+      --glow: 120,115,255; /* for shadows */
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--ink);
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(255,152,184,.08), rgba(0,0,0,0)),
+                  radial-gradient(1000px 800px at 90% 10%, rgba(169,148,255,.10), rgba(0,0,0,0)),
+                  linear-gradient(180deg, #0d0e13, #0b0c11 60%);
+      line-height:1.7;
+      letter-spacing: .1px;
+    }
+
+    .shell{
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 56px 20px 96px;
+    }
+
+    /* HEADER */
+    header.hero{
+      position: relative;
+      padding: clamp(24px, 4vw, 48px);
+      border-radius: 28px;
+      background:
+        radial-gradient(1200px 400px at 50% -20%, rgba(255,122,162,.18), transparent 60%),
+        radial-gradient(900px 500px at 120% -10%, rgba(169,148,255,.18), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow: 0 1px 0 rgba(255,255,255,.06) inset,
+                  0 40px 120px rgba(var(--glow), .12),
+                  0 10px 30px rgba(0,0,0,.35);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .hero .badges{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom: 14px;
+    }
+    .badge{
+      font-size: 12px; letter-spacing:.3px; color: var(--ink);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      padding:6px 10px; border-radius:999px;
+    }
+
+    h1.title{
+      font-family: "Playfair Display", serif;
+      font-size: clamp(34px, 6vw, 64px);
+      line-height: 1.05;
+      margin: 4px 0 14px;
+      background: linear-gradient(90deg, #fff, #eae6ff 40%, #ffd6e4 80%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+
+    .subtitle{
+      color: var(--muted);
+      font-size: clamp(14px, 1.8vw, 18px);
+      max-width: 65ch;
+    }
+
+    .ribbon{
+      position:absolute; inset:auto -40px -40px auto; transform: rotate(-8deg);
+      width: 260px; height: 260px; opacity:.45;
+      filter: blur(8px) saturate(110%);
+      background: conic-gradient(from 210deg, var(--rose), var(--lilac), #7fd3ff, var(--rose));
+      border-radius: 50%;
+      mask-image: radial-gradient(circle at 55% 45%, black 40%, transparent 58%);
+    }
+
+    /* GRID TOP IMAGES */
+    .top-grid{
+      margin-top: 26px;
+      display:grid; grid-template-columns: 1.1fr .9fr; gap: 16px;
+    }
+    .frame{
+      border-radius: 22px; overflow:hidden; position:relative;
+      background: #0b0c12; border:1px solid rgba(255,255,255,.08);
+      box-shadow: 0 12px 50px rgba(0,0,0,.45), 0 20px 80px rgba(var(--glow),.08);
+      aspect-ratio: 5/3;
+    }
+    .frame img{width:100%; height:100%; object-fit:cover; display:block;}
+    .frame.small{aspect-ratio: 1/1}
+    .corner{
+      position:absolute; inset:auto 12px 12px auto; font-size:12px; color:#fff; opacity:.9;
+      background: rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.12); padding:6px 8px; border-radius:10px;
+    }
+
+    /* LETTER CARD */
+    .card{
+      margin-top: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 28px; padding: clamp(22px, 4vw, 44px);
+      box-shadow: 0 1px 0 rgba(255,255,255,.08) inset,
+                  0 30px 100px rgba(0,0,0,.38);
+    }
+
+    .dropcap:first-letter{
+      font-family: "Playfair Display", serif;
+      float:left; font-size: 64px; line-height: .9; padding-right: 12px; margin-top: 2px;
+      background: linear-gradient(180deg, #fff, #ffdbe8);
+      -webkit-background-clip:text; color:transparent;
+    }
+
+    blockquote{
+      margin: 22px 0; padding: 18px 20px; border-left: 4px solid var(--rose);
+      background: rgba(255,122,162,.06);
+      border-radius: 16px; color: #ffe9f1; font-style: italic;
+    }
+
+    /* TIMELINE */
+    .timeline{
+      margin-top: 36px; position:relative;
+      display:grid; gap: 18px;
+      grid-template-columns: 1fr;
+    }
+    .milestone{
+      display:grid; grid-template-columns: 120px 1fr; gap: 18px; align-items:start;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px; padding: 16px 18px;
+    }
+    .when{ font-weight:600; color:#fff }
+    .what{ color: var(--muted)}
+
+    /* GALLERY */
+    .gallery{
+      margin-top: 32px; display:grid; gap:14px; grid-template-columns: repeat(12, 1fr);
+    }
+    .g1{ grid-column: span 7 }
+    .g2{ grid-column: span 5 }
+    .g3{ grid-column: span 4 }
+    .g4{ grid-column: span 4 }
+    .g5{ grid-column: span 4 }
+    .photo{
+      position:relative; border-radius: 22px; overflow:hidden; aspect-ratio: 4/3;
+      border: 1px solid rgba(255,255,255,.08);
+      background:#0b0c12; box-shadow: 0 10px 40px rgba(0,0,0,.45);
+    }
+    .photo img{ width:100%; height:100%; object-fit: cover; display:block; }
+    .tag{
+      position:absolute; inset:auto auto 10px 10px; font-size:12px; color:#fff; opacity:.9;
+      background: rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.12); padding:6px 8px; border-radius:999px;
+    }
+
+    /* FOOTER */
+    footer{
+      margin-top: 44px; text-align:center; color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px){
+      .top-grid{ grid-template-columns: 1fr; }
+      .g1,.g2,.g3,.g4,.g5{ grid-column: span 12; }
+      .milestone{ grid-template-columns: 1fr; }
+    }
+
+    /* PRINT */
+    @media print{
+      body{ background: white; color: #111; }
+      .hero, .card{ box-shadow:none; background:white; border: none; }
+      .ribbon, .frame .corner, .photo .tag{ display:none }
+      .shell{ padding: 0 }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="badges">
+        <span class="badge">Henrique ❤ Maria</span>
+        <span class="badge">Desde 15 de janeiro de 2025</span>
+        <span class="badge">Do 2º ano para a vida inteira</span>
+      </div>
+      <h1 class="title">Para a Maria — tudo o que eu sou quando estou com você</h1>
+      <p class="subtitle">Um registro do que a gente é — lembranças desde a 4ª série, promessas do presente e um futuro que eu quero construir ao seu lado. Coloquei minhas fotos preferidas por aqui para essa carta ter o nosso rosto.</p>
+
+      <div class="top-grid">
+        <figure class="frame">
+          <img src="imagens/saponcio.jpg" alt="Nós dois — foto 1" />
+          <figcaption class="corner">capa 01</figcaption>
+        </figure>
+        <figure class="frame small">
+          <img src="imagens/encontro.jpg" alt="Nós dois — foto 2" />
+          <figcaption class="corner">capa 02</figcaption>
+        </figure>
+      </div>
+
+      <div class="ribbon" aria-hidden="true"></div>
+    </header>
+
+    <!-- LETTER -->
+    <article class="card">
+      <p class="dropcap"><strong>Maria</strong>, tem tanta coisa sobre nós dois que eu guardo comigo… Às vezes eu penso que, se eu colocasse tudo em palavras, daria um livro inteiro — e ainda assim eu quero tentar, porque você merece saber tudo o que eu sinto e tudo o que a gente já construiu.</p>
+
+      <p>Eu lembro do primeiro dia em que a gente se conheceu, lá na 4ª série. Quem diria que aquele encontro mudaria minha vida? A gente cresceu junto e, no meio de tanta coisa, você foi a única pessoa que nunca me abandonou. Isso é uma das coisas que eu mais valorizo, porque eu sei o peso da solidão — e foi com você que eu descobri o que é ter alguém de verdade do meu lado.</p>
+
+      <p>Hoje, no nosso 2º ano, eu olho para trás e vejo que todo esse tempo valeu a pena por ter me trazido até aqui: com você, minha melhor amiga e namorada desde <strong>15 de janeiro de 2025</strong>. Eu amo lembrar desse dia, porque foi quando tudo mudou de vez.</p>
+
+      <blockquote>Mesmo quando eu fico em silêncio, meu amor por você fala alto dentro de mim. O que eu sinto cresce a cada dia, mesmo nas palavras que eu ainda não sei dizer.</blockquote>
+
+      <p>Eu sei que às vezes eu tenho dificuldade em conversar, em puxar assunto, em me expressar. Você tem uma fluidez e uma inteligência que eu admiro demais, e eu me orgulho de ver o quanto você brilha. Eu não tenho sempre as palavras certas, mas eu tenho a certeza certa: <strong>você é a pessoa mais importante da minha vida</strong>.</p>
+
+      <p>Eu também sei dos seus desafios e eu quero que você saiba que nada disso me afasta. Na verdade, me faz querer estar ainda mais do seu lado. Eu não te vejo como peso nem problema. Eu te vejo como quem você é: a Maria que eu amo, a Maria que me inspira a ser melhor todos os dias.</p>
+
+      <p>Às vezes eu tenho medo… medo de você se afastar, medo de ser trocado, medo de perder quem sempre ficou comigo. Mas, mesmo com o medo, eu escolho acreditar em nós. O que a gente tem é forte, é real, é amor. E eu quero continuar ao seu lado, construindo a nossa história, do presente para o futuro.</p>
+
+      <p>Eu não sou perfeito, mas eu te prometo uma coisa: <strong>vou sempre me esforçar para ser a pessoa que você merece</strong>. Porque, no fim das contas, tudo o que eu sou hoje tem um pouco de você. Eu te amo — com todas as palavras que eu consigo e com as que eu ainda vou aprender a dizer.</p>
+    </article>
+
+    <!-- TIMELINE -->
+    <section class="timeline">
+      <div class="milestone">
+        <div class="when">4ª série</div>
+        <div class="what">Nos conhecemos. Um começo que parecia simples, mas que mudou tudo.</div>
+      </div>
+      <div class="milestone">
+        <div class="when">15 jan 2025</div>
+        <div class="what">Viramos namorados. Melhor amiga + amor da vida: a nossa combinação favorita.</div>
+      </div>
+      <div class="milestone">
+        <div class="when">Hoje</div>
+        <div class="what">2º ano, planos, coragem, e a vontade de te escolher todos os dias.</div>
+      </div>
+      <div class="milestone">
+        <div class="when">Sempre</div>
+        <div class="what">Continuar aprendendo a falar, a ouvir, a amar — e construir uma vida de verdade juntos.</div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" aria-label="Galeria de fotos">
+      <figure class="photo g1"><img src="imagens/perfeição.jpg" alt="nós dois sorrindo" /><figcaption class="tag">nós dois</figcaption></figure>
+      <figure class="photo g2"><img src="imagens/nossas sombras.jpg" alt="mão dada" /><figcaption class="tag">ao seu lado</figcaption></figure>
+      <figure class="photo g3"><img src="imagens/serra.jpg" alt="café juntos" /><figcaption class="tag">nossa viajem</figcaption></figure>
+      <figure class="photo g4"><img src="imagens/você.jpg" alt="pôr do sol" /><figcaption class="tag">meu amor</figcaption></figure>
+      <figure class="photo g5"><img src="imagens/eu.jpg" alt="risos" /><figcaption class="tag">seu amor</figcaption></figure>
+    </section>
+
+    <footer>
+      Feito com amor por Henrique — <time datetime="2025-08-26">26 de agosto de 2025</time>
+    </footer>
+  </div>
+</body>
+</html>
